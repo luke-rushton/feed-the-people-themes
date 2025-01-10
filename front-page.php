@@ -34,7 +34,10 @@ get_header();
 				<?php if (have_rows('page_menu_items')): ?>
 					<ul>
 						<?php while (have_rows('page_menu_items')): the_row() ?>
-							<li><a><?php echo get_sub_field('section_title') ?></a></li>
+							<li>
+								<a><?php echo get_sub_field('section_title') ?></a>
+								<?php echo wp_get_attachment_image(get_sub_field('section_background'), 'full', false); ?>
+							</li>
 						<?php endwhile; ?>
 					</ul>
 				<?php endif; ?>
@@ -47,7 +50,11 @@ get_header();
 				<?php if (have_rows('works')): ?>
 					<ul>
 						<?php while (have_rows('works')): the_row() ?>
-							<li><a><?php echo get_sub_field('work_title') ?></a></li>
+							<li>
+								<a><?php echo get_sub_field('work_title') ?></a>
+								<?php echo the_sub_field('work_content') ?>
+							
+							</li>
 						<?php endwhile; ?>
 					</ul>
 				<?php endif; ?>
@@ -85,7 +92,27 @@ get_header();
 							<li>
 								<p><?php echo get_sub_field('name') ?></p>
 								<p><?php echo get_sub_field('title') ?></p>
-						
+								<?php echo wp_get_attachment_image(get_sub_field('photo'), 'full', false); ?>
+								<p><?php echo get_sub_field('linkedin') ?></p>
+								<p><?php echo get_sub_field('instagram') ?></p>
+								<p><?php echo get_sub_field('facebook') ?></p>
+								<p><?php echo get_sub_field('twitter') ?></p>
+							</li>
+						<?php endwhile; ?>
+					</ul>
+				<?php endif; ?>
+
+				<!-- Affiliate Section -->
+				<?php if (get_field('affiliates_title')): ?>
+					<h2><?php the_field('affiliates_title') ?></h2>
+					<?php endif; ?>
+
+				<?php if (have_rows('affiliate_logos')): ?>
+					<ul>
+						<?php while (have_rows('affiliate_logos')): the_row() ?>
+							<li>
+								<p><?php echo get_sub_field('affiliate_name') ?></p>
+								<?php echo wp_get_attachment_image(get_sub_field('affiliate_logo'), 'full', false); ?>
 							</li>
 						<?php endwhile; ?>
 					</ul>
