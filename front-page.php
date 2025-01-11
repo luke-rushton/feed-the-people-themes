@@ -113,6 +113,7 @@ get_header();
 							<li>
 								<p><?php echo get_sub_field('affiliate_name') ?></p>
 								<?php echo wp_get_attachment_image(get_sub_field('affiliate_logo'), 'full', false); ?>
+								<p><?php echo get_sub_field('affiliate_link') ?></p>
 							</li>
 						<?php endwhile; ?>
 					</ul>
