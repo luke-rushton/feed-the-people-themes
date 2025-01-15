@@ -22,26 +22,35 @@ get_header();
 			<!-- check for ACF -->
 			<?php if (function_exists('the_field')): ?>
 
-				<!-- Splash -->
-				<?php if (get_field('page_title')): ?>
-					<h1><?php the_field('page_title') ?></h1>
-					<?php endif; ?>
 
-				<?php if (get_field('page_subtitle')): ?>
-					<p><?php the_field('page_subtitle') ?></p>
-					<?php endif; ?>
-
-				<?php if (have_rows('page_menu_items')): ?>
-					<ul>
-						<?php while (have_rows('page_menu_items')): the_row() ?>
-							<li>
-								<a><?php echo get_sub_field('section_title') ?></a>
-								<?php echo wp_get_attachment_image(get_sub_field('section_background'), 'full', false); ?>
-							</li>
-						<?php endwhile; ?>
-					</ul>
-				<?php endif; ?>
-
+				<div class="splash-section">
+					<!-- Splash -->
+					<?php if (get_field('page_title')): ?>
+						<h1><?php the_field('page_title') ?></h1>
+						<?php endif; ?>
+						
+						<?php if (get_field('page_subtitle')): ?>
+							<p><?php the_field('page_subtitle') ?></p>
+							<?php endif; ?>
+							
+							<?php if (have_rows('page_menu_items')): ?>
+								<ul class="content-list">
+									<?php while (have_rows('page_menu_items')): the_row() ?>
+										<li>
+											<a><?php echo get_sub_field('section_title') ?></a>
+										</li>
+									<?php endwhile; ?>
+								</ul>
+								<ul class="splash-list">
+									<?php while (have_rows('page_menu_items')): the_row() ?>
+										<li>
+											<?php $background = get_sub_field('section_background') ?>
+											<div class="splash-background" style="background-image: url('<?php echo $background;?>')"></div>
+										</li>
+									<?php endwhile; ?>
+								</ul>
+						<?php endif; ?>
+				</div>
 				<!-- Works -->
 				<?php if (get_field('works_title')): ?>
 					<h2><?php the_field('works_title') ?></h2>

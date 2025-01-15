@@ -139,6 +139,7 @@ add_action( 'widgets_init', 'feed_the_people_themes_widgets_init' );
  */
 function feed_the_people_themes_scripts() {
 	wp_enqueue_style( 'feed-the-people-themes-style', get_stylesheet_uri(), array(), _S_VERSION );
+	wp_enqueue_style( 'temp-stylesheet', get_template_directory_uri() . '/temp-stylesheet.css', array(), _S_VERSION );
 	wp_style_add_data( 'feed-the-people-themes-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'feed-the-people-themes-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
