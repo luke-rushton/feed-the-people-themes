@@ -30,8 +30,12 @@ get_header();
 						<?php endif; ?>
 						
 						<?php if (get_field('page_subtitle')): ?>
-							<p><?php the_field('page_subtitle') ?></p>
+							<p class="subtitle"><?php the_field('page_subtitle') ?></p>
 							<?php endif; ?>
+
+					<?php if (get_field('company_logo')): ?>
+						<?php echo wp_get_attachment_image(get_field('company_logo'), 'full', false, ["class" => "company-logo"]); ?>
+					<?php endif; ?>
 							
 							<?php if (have_rows('page_menu_items')): ?>
 								<ul class="content-list">
@@ -50,6 +54,10 @@ get_header();
 									<?php endwhile; ?>
 								</ul>
 						<?php endif; ?>
+						<!-- arrow symbol -->
+						 <div class="arrow-div">
+						 <svg  xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path fill="#FFFFFF" d="M11 21.883l-6.235-7.527-.765.644 7.521 9 7.479-9-.764-.645-6.236 7.529v-21.884h-1v21.883z"/></svg>
+						 </div>
 				</div>
 				<!-- Works -->
 				<?php if (get_field('works_title')): ?>

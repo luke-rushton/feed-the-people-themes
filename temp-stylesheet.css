@@ -43,3 +43,30 @@ p {
 header {
     display: none;
 }
+
+/*making title and subtitle invisible for mobile view */
+h1,
+.subtitle {
+    display: none;
+}
+.company-logo {
+    position: absolute;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: clamp(3rem, 15vw, 5rem);
+}
+
+/*splash page arrow */
+.arrow-div {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    width: 2rem;
+    height: 5rem;
+    background-color: darkblue;
+}
+.arrow-div svg {
+    height: 5rem;
+    width: 100%;
+}
